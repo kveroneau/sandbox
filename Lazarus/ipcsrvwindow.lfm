@@ -1,0 +1,38 @@
+object IPCServerForm: TIPCServerForm
+  Left = 291
+  Height = 240
+  Top = 437
+  Width = 320
+  Caption = 'IPC Server'
+  ClientHeight = 240
+  ClientWidth = 320
+  OnResize = FormResize
+  LCLVersion = '2.2.6.0'
+  object IPCProperties: TTIPropertyGrid
+    Left = 0
+    Height = 130
+    Top = 0
+    Width = 200
+    CheckboxForBoolean = False
+    DefaultValueFont.Color = clWindowText
+    Filter = [tkInteger, tkChar, tkEnumeration, tkFloat, tkSet, tkMethod, tkSString, tkLString, tkAString, tkWString, tkVariant, tkArray, tkRecord, tkInterface, tkClass, tkObject, tkWChar, tkBool, tkInt64, tkQWord, tkDynArray, tkInterfaceRaw, tkProcVar, tkUString, tkUChar, tkHelper, tkFile, tkClassRef, tkPointer]
+    Indent = 12
+    NameFont.Color = clWindowText
+    TIObject = SimpleIPCServer
+    ValueFont.Color = clMaroon
+  end
+  object SimpleIPCServer: TSimpleIPCServer
+    Active = False
+    ServerID = 'Sandbox'
+    Global = True
+    OnMessage = SimpleIPCServerMessage
+    OnMessageQueued = SimpleIPCServerMessageQueued
+    OnMessageError = SimpleIPCServerMessageError
+    OnThreadError = SimpleIPCServerThreadError
+    MaxQueue = 5
+    MaxAction = ipcmoaError
+    Threaded = True
+    Left = 249
+    Top = 178
+  end
+end

@@ -1,0 +1,87 @@
+object SQL2Form: TSQL2Form
+  Left = 369
+  Height = 378
+  Top = 236
+  Width = 608
+  Caption = 'SQLite Dataset Form'
+  ClientHeight = 378
+  ClientWidth = 608
+  LCLVersion = '2.2.6.0'
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 288
+    Top = 0
+    Width = 464
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource
+    TabOrder = 0
+  end
+  object Sqlite3Dataset: TSqlite3Dataset
+    AutoIncrementKey = True
+    FileName = 'sandbox.db'
+    PrimaryKey = 'id'
+    SaveOnClose = True
+    StoreDefs = True
+    TableName = 'customers'
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftAutoInc
+        Precision = -1
+      end    
+      item
+        Name = 'name'
+        DataType = ftMemo
+        Precision = -1
+      end    
+      item
+        Name = 'phone'
+        DataType = ftMemo
+        Precision = -1
+      end    
+      item
+        Name = 'address'
+        DataType = ftMemo
+        Precision = -1
+      end    
+      item
+        Name = 'memo'
+        DataType = ftMemo
+        Precision = -1
+      end>
+    AfterOpen = Sqlite3DatasetAfterOpen
+    Left = 536
+    Top = 24
+  end
+  object DataSource: TDataSource
+    DataSet = Sqlite3Dataset
+    Left = 536
+    Top = 96
+  end
+  object SQLDBRestDispatcher1: TSQLDBRestDispatcher
+    Active = False
+    Connections = <>
+    Schemas = <    
+      item
+        Schema = SQLDBRestSchema1
+      end>
+    EnforceLimit = 0
+    CORSMaxAge = 86400
+    CORSAllowCredentials = True
+    Left = 524
+    Top = 177
+  end
+  object SQLDBRestSchema1: TSQLDBRestSchema
+    Resources = <>
+    Left = 515
+    Top = 246
+  end
+  object SQLDBRestBusinessProcessor1: TSQLDBRestBusinessProcessor
+    Schema = SQLDBRestSchema1
+    OnGetDataset = SQLDBRestBusinessProcessor1GetDataset
+    Left = 488
+    Top = 312
+  end
+end

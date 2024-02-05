@@ -1,0 +1,108 @@
+object SQL1DBForm: TSQL1DBForm
+  Left = 337
+  Height = 386
+  Top = 222
+  Width = 564
+  Caption = 'SQLite Test Form'
+  ClientHeight = 386
+  ClientWidth = 564
+  OnClose = FormClose
+  OnShow = FormShow
+  LCLVersion = '2.2.6.0'
+  object Label1: TLabel
+    Left = 24
+    Height = 19
+    Top = 19
+    Width = 70
+    Caption = 'Note Title:'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object DBMemo: TDBMemo
+    Left = 24
+    Height = 218
+    Top = 72
+    Width = 392
+    DataField = 'note'
+    DataSource = SQLDataSource
+    ScrollBars = ssAutoVertical
+    TabOrder = 0
+  end
+  object DBNavigator: TDBNavigator
+    Left = 48
+    Height = 25
+    Top = 320
+    Width = 241
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 25
+    ClientWidth = 241
+    DataSource = SQLDataSource
+    Options = []
+    TabOrder = 1
+  end
+  object DBTitle: TDBMemo
+    Left = 104
+    Height = 40
+    Top = 8
+    Width = 288
+    DataField = 'title'
+    DataSource = SQLDataSource
+    TabOrder = 2
+  end
+  object SQLite3Connection: TSQLite3Connection
+    Connected = False
+    LoginPrompt = False
+    DatabaseName = '/home/kveroneau/Projects/Sandbox/test.db'
+    KeepConnection = False
+    Transaction = SQLTransaction
+    AlwaysUseBigint = False
+    Left = 480
+    Top = 32
+  end
+  object SQLTransaction: TSQLTransaction
+    Active = False
+    Database = SQLite3Connection
+    Left = 480
+    Top = 104
+  end
+  object SQLDataSource: TDataSource
+    DataSet = SQLQuery
+    Left = 480
+    Top = 232
+  end
+  object SQLQuery: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    MaxIndexesCount = 4
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftAutoInc
+        Precision = -1
+      end    
+      item
+        Name = 'title'
+        DataType = ftMemo
+        Precision = -1
+      end    
+      item
+        Name = 'note'
+        DataType = ftMemo
+        Precision = -1
+      end>
+    Database = SQLite3Connection
+    Transaction = SQLTransaction
+    SQL.Strings = (
+      'select * from notesys;'
+    )
+    Params = <>
+    Left = 480
+    Top = 168
+  end
+end

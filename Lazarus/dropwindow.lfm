@@ -1,0 +1,12 @@
+object DropForm: TDropForm
+  Left = 637
+  Height = 240
+  Top = 133
+  Width = 320
+  AllowDropFiles = True
+  Caption = 'Drop Window'
+  OnDragDrop = FormDragDrop
+  OnDragOver = FormDragOver
+  OnDropFiles = FormDropFiles
+  LCLVersion = '2.2.6.0'
+end

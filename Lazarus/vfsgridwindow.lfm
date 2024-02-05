@@ -1,0 +1,21 @@
+object VFSGridForm: TVFSGridForm
+  Left = 692
+  Height = 315
+  Top = 309
+  Width = 548
+  Caption = 'VFS Grid'
+  ClientHeight = 315
+  ClientWidth = 548
+  OnResize = FormResize
+  LCLVersion = '2.2.6.0'
+  object VFSGrid: TDBGrid
+    Left = 0
+    Height = 236
+    Top = 0
+    Width = 400
+    Color = clWindow
+    Columns = <>
+    DataSource = VFSModule.DataSource
+    TabOrder = 0
+  end
+end

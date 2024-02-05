@@ -1,0 +1,189 @@
+object VFSDBForm: TVFSDBForm
+  Left = 347
+  Height = 365
+  Top = 312
+  Width = 532
+  Caption = 'VFS Database'
+  ClientHeight = 365
+  ClientWidth = 532
+  LCLVersion = '2.2.6.0'
+  object VFSNavigator: TDBNavigator
+    Left = 128
+    Height = 25
+    Top = 304
+    Width = 241
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 25
+    ClientWidth = 241
+    DataSource = VFSModule.DataSource
+    Options = []
+    TabOrder = 0
+  end
+  object Label1: TLabel
+    Left = 16
+    Height = 19
+    Top = 16
+    Width = 19
+    Caption = 'ID:'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 16
+    Height = 19
+    Top = 48
+    Width = 65
+    Caption = 'Filename:'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 16
+    Height = 19
+    Top = 80
+    Width = 35
+    Caption = 'Type:'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label4: TLabel
+    Left = 16
+    Height = 19
+    Top = 112
+    Width = 49
+    Caption = 'Owner:'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label5: TLabel
+    Left = 16
+    Height = 19
+    Top = 144
+    Width = 62
+    Caption = 'Location:'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object DBText1: TDBText
+    Left = 96
+    Height = 19
+    Top = 16
+    Width = 52
+    DataField = 'ID'
+    DataSource = VFSModule.DataSource
+    ParentColor = False
+  end
+  object DBFilename: TDBEdit
+    Left = 96
+    Height = 30
+    Top = 40
+    Width = 256
+    DataField = 'FILENAME'
+    DataSource = VFSModule.DataSource
+    MaxLength = 0
+    TabOrder = 1
+  end
+  object DBType: TDBEdit
+    Left = 96
+    Height = 30
+    Top = 80
+    Width = 256
+    DataField = 'TYPE'
+    DataSource = VFSModule.DataSource
+    Alignment = taRightJustify
+    MaxLength = 0
+    TabOrder = 2
+  end
+  object DBOwner: TDBEdit
+    Left = 96
+    Height = 30
+    Top = 112
+    Width = 256
+    DataField = 'OWNER'
+    DataSource = VFSModule.DataSource
+    Alignment = taRightJustify
+    MaxLength = 0
+    TabOrder = 3
+  end
+  object DBLocation: TDBEdit
+    Left = 96
+    Height = 30
+    Top = 144
+    Width = 256
+    DataField = 'LOCATION'
+    DataSource = VFSModule.DataSource
+    Alignment = taRightJustify
+    MaxLength = 0
+    TabOrder = 4
+  end
+  object DBModified: TDBDateTimePicker
+    Left = 96
+    Height = 25
+    Top = 184
+    Width = 95
+    DataField = 'MODIFIED'
+    DataSource = VFSModule.DataSource
+    ReadOnly = False
+    CenturyFrom = 1941
+    MaxDate = 2958465
+    MinDate = -53780
+    TabOrder = 5
+    TrailingSeparator = False
+    TextForNullDate = 'NULL'
+    LeadingZeros = True
+    Kind = dtkDate
+    TimeFormat = tf24
+    TimeDisplay = tdHMS
+    DateMode = dmComboBox
+    UseDefaultSeparators = True
+    HideDateTimeParts = []
+    MonthNames = 'Long'
+  end
+  object GenerateBtn: TButton
+    Left = 39
+    Height = 25
+    Top = 239
+    Width = 75
+    Caption = 'Generate'
+    OnClick = GenerateBtnClick
+    TabOrder = 6
+  end
+  object FindBtn: TButton
+    Left = 144
+    Height = 25
+    Top = 239
+    Width = 75
+    Caption = 'Find Test'
+    OnClick = FindBtnClick
+    TabOrder = 7
+  end
+  object GridBtn: TButton
+    Left = 256
+    Height = 25
+    Top = 239
+    Width = 75
+    Caption = 'Grid'
+    OnClick = GridBtnClick
+    TabOrder = 8
+  end
+  object ReleaseBtn: TButton
+    Left = 368
+    Height = 25
+    Top = 239
+    Width = 75
+    Caption = 'Release'
+    OnClick = ReleaseBtnClick
+    TabOrder = 9
+  end
+end

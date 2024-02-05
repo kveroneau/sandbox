@@ -1,0 +1,5 @@
+IPC Server/Client Research
+
+Do not use in environments where anything could send random data to the created IPC Pipe, not even sure why they choose to go with Pipes instead of sockets for their IPC implementation, but it can crash the entire program, at least this GUI program when using threads if random data is sent to the IPC pipe, for example:
+
+$ echo "Hello World" >/tmp/Sandbox

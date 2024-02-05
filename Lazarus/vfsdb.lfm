@@ -1,0 +1,75 @@
+object VFSModule: TVFSModule
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 150
+  HorizontalOffset = 293
+  VerticalOffset = 133
+  Width = 150
+  object Dbf: TDbf
+    DateTimeHandling = dtDateTime
+    FilePath = 'data/'
+    IndexDefs = <    
+      item
+        IndexFile = 'FILEID'
+        SortField = 'ID'
+        Options = [ixPrimary, ixUnique]
+      end    
+      item
+        IndexFile = 'TYPINFO'
+        SortField = 'TYPE'
+        Options = []
+      end    
+      item
+        IndexFile = 'LOCATIONID'
+        SortField = 'LOCATION'
+        Options = []
+      end    
+      item
+        IndexFile = 'FILENAMES'
+        SortField = 'FILENAME'
+        Options = [ixCaseInsensitive]
+      end>
+    OpenMode = omAutoCreate
+    StoreDefs = True
+    TableName = 'vfs.dbf'
+    TableLevel = 7
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftAutoInc
+      end    
+      item
+        Name = 'FILENAME'
+        DataType = ftString
+        Size = 40
+      end    
+      item
+        Name = 'TYPE'
+        DataType = ftInteger
+      end    
+      item
+        Name = 'OWNER'
+        DataType = ftInteger
+      end    
+      item
+        Name = 'LOCATION'
+        DataType = ftInteger
+      end    
+      item
+        Name = 'MODIFIED'
+        DataType = ftDateTime
+      end    
+      item
+        Name = 'DATA'
+        DataType = ftBlob
+      end>
+    FilterOptions = []
+    Left = 105
+    Top = 16
+  end
+  object DataSource: TDataSource
+    DataSet = Dbf
+    Left = 96
+    Top = 83
+  end
+end

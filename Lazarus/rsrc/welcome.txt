@@ -1,0 +1,4 @@
+Welcome to my Sandbox program!
+
+This should display as soon as the problem launches to provide some information on to what the heck this program even is if it's found upon by someone else other than Kevin, the creator of this program.
+
